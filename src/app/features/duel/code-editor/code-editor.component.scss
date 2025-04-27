@@ -1,0 +1,50 @@
+.code-editor-container {
+  margin: 1.25rem;
+  width: 70rem;
+
+  &__header {
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 5px;
+    background-color: var(--background-card);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .language-select {
+      padding: 0.5rem 1rem;
+      border: 1px solid var(#444);
+      border-radius: 8px;
+      background-color: var(--background-card);
+      color: var(--text-color);
+      font-size: 1rem;
+      outline: none;
+      transition: 0.3s;
+      cursor: pointer;
+
+      &:hover {
+        border-color: var(#4f46e5);
+      }
+
+      &:focus {
+        border-color: var(--primary-color, #4f46e5);
+        box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3);
+      }
+    }
+
+    .btn-run {
+      width: 20px;
+      border: none;
+      outline: none;
+      color: var(--text-color);
+      cursor: pointer;
+      background-color: transparent;
+    }
+
+    .btn-wrapper {
+      gap: 1rem;
+      display: flex;
+      align-items: center;
+    }
+  }
+}

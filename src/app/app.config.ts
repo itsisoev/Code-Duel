@@ -5,6 +5,7 @@ import {routes} from './app.routes';
 import {provideHttpClient, withInterceptors} from "@angular/common/http";
 import {authInterceptor} from "./auth/interceptor/auth.interceptor";
 import {JWT_OPTIONS, JwtHelperService} from "@auth0/angular-jwt";
+import {provideCodeEditor} from "@ngstack/code-editor";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -19,6 +20,7 @@ export const appConfig: ApplicationConfig = {
         allowedDomains: ['localhost:3000'],
       }
     },
-    JwtHelperService
+    JwtHelperService,
+    provideCodeEditor()
   ]
 };

@@ -1,1 +1,45 @@
-<p>code-editor works!</p>
+<div class="code-editor-container">
+  <div class="code-editor-container__header">
+    <select class="language-select" (change)="onLanguageChange($event)">
+      <option
+        *ngFor="let language of languages()"
+        [value]="language"
+        [selected]="language === model().language">
+        {{ language }}
+      </option>
+    </select>
+
+    <div class="btn-wrapper">
+      <button class="btn-run">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+          <g id="SVGRepo_iconCarrier">
+            <path
+              d="M21.4086 9.35258C23.5305 10.5065 23.5305 13.4935 21.4086 14.6474L8.59662 21.6145C6.53435 22.736 4 21.2763 4 18.9671L4 5.0329C4 2.72368 6.53435 1.26402 8.59661 2.38548L21.4086 9.35258Z"
+              fill="#79dd55"></path>
+          </g>
+        </svg>
+      </button>
+
+      <button class="btn-run">
+        <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="circle-question"
+             class="svg-inline--fa fa-circle-question absolute left-1/2 top-1/2 h-[1em] -translate-x-1/2 -translate-y-1/2 align-[-0.125em]"
+             role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <path fill="currentColor"
+                d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm169.8-90.7c7.9-22.3 29.1-37.3 52.8-37.3h58.3c34.9 0 63.1 28.3 63.1 63.1c0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6c-13.3 0-24-10.7-24-24V250.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1c0-8.4-6.8-15.1-15.1-15.1H222.6c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="code-editor-container__main">
+    <ngs-code-editor
+      theme="vs-dark"
+      [codeModel]="model()"
+      [options]="options()"
+      (valueChanged)="onCodeChanged($event)"
+      style="height: 700px;">
+    </ngs-code-editor>
+  </div>
+</div>
