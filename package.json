@@ -12,7 +12,6 @@
     "serve:ssr:soca14": "node dist/soca14/server/server.mjs",
     "electron": "ng build --base-href ./ && electron .",
     "dist": "ng build --base-href ./ && electron-builder"
-
   },
   "private": true,
   "dependencies": {
@@ -24,6 +23,7 @@
     "@angular/platform-browser": "^18.1.0",
     "@angular/platform-browser-dynamic": "^18.1.0",
     "@angular/router": "^18.1.0",
+    "@auth0/angular-jwt": "^5.2.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
@@ -47,8 +47,14 @@
     "productName": "Code Duel",
     "mac": {
       "category": "public.app-category.developer-tools",
-      "target": ["dmg", "zip"]
+      "target": [
+        "dmg",
+        "zip"
+      ]
     },
-    "files": ["**/*", "dist/soca14/browser/**"]
+    "files": [
+      "**/*",
+      "dist/soca14/browser/**"
+    ]
   }
 }

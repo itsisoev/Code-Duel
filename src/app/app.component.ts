@@ -1,7 +1,7 @@
 import {Component, DestroyRef, inject, signal} from '@angular/core';
 import {ActivatedRoute, NavigationEnd, Router, RouterOutlet} from '@angular/router';
 import {UcHeaderComponent} from "./components/uc-header/uc-header.component";
-import {catchError, filter, map, mergeMap} from "rxjs";
+import {filter, map, mergeMap} from "rxjs";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 
 @Component({
