@@ -1,9 +1,24 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import {ApplicationConfig, provideZoneChangeDetection} from '@angular/core';
+import {provideRouter} from '@angular/router';
 
-import { routes } from './app.routes';
-import {provideHttpClient} from "@angular/common/http";
+import {routes} from './app.routes';
+import {HTTP_INTERCEPTORS, provideHttpClient, withInterceptors, withInterceptorsFromDi} from "@angular/common/http";
+import {authInterceptor} from "./auth/interceptor/auth.interceptor";
+import {JWT_OPTIONS, JwtHelperService} from "@auth0/angular-jwt";
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideHttpClient()]
+  providers: [
+    provideZoneChangeDetection({eventCoalescing: true}),
+    provideRouter(routes),
+    provideHttpClient(withInterceptors([authInterceptor])),
+    {
+      provide: JWT_OPTIONS, useValue: {
+        headerName: 'Authorization',
+        authScheme: 'Bearer ',
+        tokenGetter: () => localStorage.getItem('access_token'),
+        allowedDomains: ['localhost:3000'],
+      }
+    },
+    JwtHelperService
+  ]
 };
