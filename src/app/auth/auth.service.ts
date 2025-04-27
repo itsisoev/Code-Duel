@@ -1,7 +1,7 @@
 import {Injectable, signal} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {JwtHelperService} from '@auth0/angular-jwt';
-import {catchError, map, mergeMap, Observable, of, tap} from 'rxjs';
+import {catchError, Observable, of, tap} from 'rxjs';
 import {environment} from '../../environments/environment.development';
 import {IAuth, IDecodedToken, IUser} from '../model/auth.interface';
 
